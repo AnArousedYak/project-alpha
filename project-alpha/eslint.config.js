@@ -1,7 +1,15 @@
+import js from '@eslint/js';
+import globals from 'globals';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import { defineConfig, globalIgnores } from 'eslint/config';
+
 export default defineConfig([
   globalIgnores(['dist']),
 
+  // --------------------------------------------
   // FRONTEND 
+  // --------------------------------------------
   {
     files: ['src/**/*.{js,jsx}'],
     extends: [
@@ -23,16 +31,21 @@ export default defineConfig([
     },
   },
 
-// DABOOT (backend)
+  // --------------------------------------------
+  // BACKEND 
+  // --------------------------------------------
   {
     files: ['server/**/*.js'],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.node, 
+      globals: globals.node,
       parserOptions: {
         sourceType: 'module',
       },
     },
+    rules: {
+  
+    },
   },
 
-])
+]);
