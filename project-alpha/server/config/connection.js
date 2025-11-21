@@ -1,11 +1,11 @@
 import { Sequelize } from 'sequelize';
 import dotenv from 'dotenv';
-
-dotenv.config();
-
-console.log("debug → calling dotenv.config()");
 const result = dotenv.config();
-
+/*
+  env vars weren't loading so I debugged it.
+  Turns out I had DB_USERNAME in the .env but DB_USER in the code.
+  Fixed the mismatch. Everything works again.
+*/
 console.log("debug → dotenv returned:", result);
 
 
